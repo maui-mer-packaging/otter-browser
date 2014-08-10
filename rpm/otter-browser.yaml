@@ -1,0 +1,39 @@
+Name       : otter-browser
+Version    : 0.9.02
+Release    : 1
+Group      : Applications/Internet
+License    : GPLv3+
+URL        : https://github.com/Emdek/otter
+Summary    : Web browser
+Description: |
+  Web browser that aim to recreate the classic Opera UI using Qt 5.
+Sources    : 
+    - "%{name}-%{version}.tar.xz"
+SetupOptions: -q -n %{name}-%{version}/upstream
+
+Configure  : cmake 
+ConfigOptions:
+    - -DCMAKE_BUILD_TYPE=RelWithDebInfo 
+
+PkgBR:
+    - cmake
+    - qt5-qttools-linguist
+PkgConfigBR:
+    - Qt5Core
+    - Qt5DBus
+    - Qt5Gui
+    - Qt5Widgets
+    - Qt5Network
+    - Qt5Sql
+    - Qt5WebKit
+    - Qt5WebKitWidgets
+    - Qt5PrintSupport
+    - Qt5Script
+    - Qt5Concurrent
+
+Files:  
+    - "%doc CHANGELOG COPYING README.md"
+    - "%{_bindir}/*"
+    - "%{_datadir}/applications/*.desktop"
+    - "%{_datadir}/icons/hicolor/*/apps/otter-browser.png"
+    - "%{_datadir}/otter-browser/locale/*.qm"
