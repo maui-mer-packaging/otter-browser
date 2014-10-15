@@ -9,6 +9,8 @@ Description: |
   Web browser that aim to recreate the classic Opera UI using Qt 5.
 Sources    : 
     - "%{name}-%{version}.tar.xz"
+Patches:
+    - 0001-Cast-to-qreal.patch
 SetupOptions: -q -n %{name}-%{version}/upstream
 
 Configure  : cmake 

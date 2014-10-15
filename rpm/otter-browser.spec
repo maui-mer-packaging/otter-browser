@@ -16,6 +16,7 @@ License:    GPLv3+
 URL:        https://github.com/Emdek/otter
 Source0:    %{name}-%{version}.tar.xz
 Source100:  otter-browser.yaml
+Patch0:     0001-Cast-to-qreal.patch
 BuildRequires:  pkgconfig(Qt5Core)
 BuildRequires:  pkgconfig(Qt5DBus)
 BuildRequires:  pkgconfig(Qt5Gui)
@@ -38,6 +39,8 @@ Web browser that aim to recreate the classic Opera UI using Qt 5.
 %prep
 %setup -q -n %{name}-%{version}/upstream
 
+# 0001-Cast-to-qreal.patch
+%patch0 -p1
 # >> setup
 # << setup
 

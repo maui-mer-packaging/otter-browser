@@ -1,0 +1,26 @@
+From 834719a3d645463d7683cbbc718f89db35e9ec4d Mon Sep 17 00:00:00 2001
+From: Pier Luigi Fiorini <pierluigi.fiorini@gmail.com>
+Date: Wed, 15 Oct 2014 18:39:47 +0200
+Subject: [PATCH] Cast to qreal
+
+Fix build no matter how qreal was defined.
+---
+ src/modules/backends/web/qtwebkit/QtWebKitWebWidget.cpp | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/modules/backends/web/qtwebkit/QtWebKitWebWidget.cpp b/src/modules/backends/web/qtwebkit/QtWebKitWebWidget.cpp
+index 749702b..a71ca8f 100644
+--- a/src/modules/backends/web/qtwebkit/QtWebKitWebWidget.cpp
++++ b/src/modules/backends/web/qtwebkit/QtWebKitWebWidget.cpp
+@@ -931,7 +931,7 @@ void QtWebKitWebWidget::setZoom(int zoom)
+ {
+ 	if (zoom != getZoom())
+ 	{
+-		m_webView->setZoomFactor(qBound(0.1, ((qreal) zoom / 100), (qreal) 100));
++		m_webView->setZoomFactor(qBound((qreal)0.1, ((qreal) zoom / 100), (qreal) 100));
+ 
+ 		SessionsManager::markSessionModified();
+ 
+-- 
+2.1.2
+
